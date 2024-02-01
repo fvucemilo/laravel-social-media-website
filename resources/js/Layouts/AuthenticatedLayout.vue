@@ -1,5 +1,5 @@
 <script setup>
-import {onMounted, ref} from 'vue';
+import {ref} from 'vue';
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
@@ -67,7 +67,10 @@ function toggleDarkMode(){
                                                 type="button"
                                                 class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150"
                                             >
-                                                {{ authUser.name }}
+                                                <Link :href="route('profile', {username: authUser.username })">
+                                                    <img :src="authUser.avatar_url"
+                                                         class="w-[40px] rounded-full border border-2 transition-all hover:border-blue-500"/>
+                                                </Link>
 
                                                 <svg
                                                     class="ms-2 -me-0.5 h-4 w-4"
@@ -86,9 +89,6 @@ function toggleDarkMode(){
                                 </template>
 
                                 <template #content>
-                                    <DropdownLink :href="route('profile', {username: authUser.username })">
-                                        Profile
-                                    </DropdownLink>
                                     <DropdownLink :href="route('logout')" method="post" as="button">
                                         Log Out
                                     </DropdownLink>
