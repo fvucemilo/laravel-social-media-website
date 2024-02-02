@@ -69,7 +69,7 @@ function toggleDarkMode(){
                                             >
                                                 <Link :href="route('profile', {username: authUser.username })">
                                                     <img :src="authUser.avatar_url"
-                                                         class="w-[40px] rounded-full border border-2 transition-all hover:border-blue-500"/>
+                                                         class="w-[40px] rounded-full border border-2 transition-all hover:border-indigo-500"/>
                                                 </Link>
 
                                                 <svg
